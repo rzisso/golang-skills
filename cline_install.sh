@@ -11,7 +11,7 @@
 # making it completely portable.
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SRC_DIR="$SCRIPT_DIR/skills"
-ROUTING_FILE="$SCRIPT_DIR/rules/golang-routing.mdc"
+ROUTING_FILE="$SCRIPT_DIR/rules/golang-routing.md"
 
 CLINE_SKILLS_DIR="$HOME/.cline/skills"
 CLINE_RULES_DIR="$HOME/.cline/rules"
@@ -19,18 +19,18 @@ CLINE_RULES_DIR="$HOME/.cline/rules"
 # Exact tokens from your routing matrix
 VALID_TOKENS=(
     "golang-design-patterns" "golang-naming" "golang-code-style" "golang-error-handling"
-    "golang-safety" "golang-concurrency" "golang-context" "golang-structs-interfaces"
-    "golang-database" "golang-security" "golang-grpc" "golang-testing" "golang-graphql"
+    "golang-safety" "golang-concurrency" "golang-context" "golang-structs-interfaces" "golang-google-wire"
+    "golang-database" "golang-security" "golang-grpc" "golang-testing" "golang-graphql" "golang-stay-updated"
     "golang-spf13-cobra" "golang-cli" "golang-spf13-viper" "golang-stretchr-testify"
-    "golang-performance" "golang-benchmark" "golang-troubleshooting" "golang-observability"
-    "golang-lint" "golang-refactoring" "golang-project-layout" "golang-documentation"
+    "golang-performance" "golang-benchmark" "golang-troubleshooting" "golang-observability" "golang-data-structures"
+    "golang-lint" "golang-refactoring" "golang-project-layout" "golang-documentation" "golang-uber-fx" "golang-uber-dig" "golang-swagger"
     "golang-continuous-integration" "golang-popular-libraries" "golang-pkg-go-dev"
-    "golang-dependency-management" "golang-gopls" "golang-modernize" "golang-samber-lo"
-    "golang-samber-oops" "golang-samber-slog" "golang-dependency-injection"
+    "golang-dependency-management" "golang-gopls" "golang-modernize" "golang-samber-lo" "golang-samber-hot" "golang-samber-mo" "golang-samber-ro"
+    "golang-samber-oops" "golang-samber-slog" "golang-samber-do" "golang-dependency-injection" "golang-how-to"
 )
 
 # ==============================================================================
-# Step 1: Install Global Routing Rule (.mdc)
+# Step 1: Install Global Routing Rule (.md)
 # ==============================================================================
 echo "📦 Step 1: Deploying global Go skill-routing matrix..."
 echo "──────────────────────────────────────────────"
@@ -38,9 +38,9 @@ echo "────────────────────────�
 if [ -f "$ROUTING_FILE" ]; then
     mkdir -p "$CLINE_RULES_DIR"
     cp "$ROUTING_FILE" "$CLINE_RULES_DIR/"
-    echo "✅ Global Rules Installed: 'golang-routing.mdc' -> $CLINE_RULES_DIR/"
+    echo "✅ Global Rules Installed: 'golang-routing.md' -> $CLINE_RULES_DIR/"
 else
-    echo "❌ Error: Could not find 'golang-routing.mdc' in your repository root ($SCRIPT_DIR)."
+    echo "❌ Error: Could not find 'golang-routing.md' in your repository root ($SCRIPT_DIR)."
     echo "   Please make sure the file exists alongside this script."
     exit 1
 fi
